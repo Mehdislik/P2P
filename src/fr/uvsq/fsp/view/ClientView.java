@@ -86,7 +86,7 @@ public class ClientView extends Group {
 	public ClientView() {
 		GridPane grid = new GridPane();
 
-		getStylesheets().add("client/stylesheet.css");
+		getStylesheets().add("stylesheet.css");
 
 		// Champ de l'adresse du serveur central
 		serverIPField = new TextField();
@@ -95,7 +95,7 @@ public class ClientView extends Group {
 		serverIPField.getStyleClass().add("littleFont");
 		serverIPField.setPrefWidth(70);
 		serverIPField.setPrefHeight(10);
-		serverIPField.setPromptText("@IP server");
+		serverIPField.setPromptText("l'@IP du serveur");
 
 		// Champ du port
 		portField = new TextField();
@@ -104,13 +104,13 @@ public class ClientView extends Group {
 		portField.getStyleClass().add("littleFont");
 		portField.setPrefWidth(50);
 		portField.setPrefHeight(10);
-		portField.setPromptText("Port");
+		portField.setPromptText(" le Port");
 
 		Image refreshConnectionImage;
 		// Bouton pour rafraichir la connexion
 		refreshConnectionButton = new Button();
 		try {
-			refreshConnectionImage = new Image(new FileInputStream("client/refresh.png"));
+		    refreshConnectionImage = new Image(new FileInputStream("src/fr/uvsq/fsp/view/refresh.png"));
 			refreshConnectionButton.setGraphic(new ImageView(refreshConnectionImage));
 		} catch (FileNotFoundException e) {
 			e.printStackTrace();
@@ -153,6 +153,7 @@ public class ClientView extends Group {
 		downloadButton.setPrefHeight(35);
 		downloadButton.getStyleClass().add("searchButton");
 		downloadButton.getStyleClass().add("removeLightGlow");
+		
 
 		// Liste affichant les fichiers téléchargés
 		downloadList = new ListView<String>();
@@ -194,7 +195,7 @@ public class ClientView extends Group {
 		grid.add(downloadList, 4, 1, 4, 5);
 
 		grid.add(fileList, 0, 2, 2, 2);
-		grid.add(downloadButton, 2, 2, 2, 1);
+		grid.add(downloadButton, 3, 1, 2, 1);
 
 		grid.add(sharedList, 0, 4, 2, 2);
 		grid.add(uploadButton, 2, 4, 1, 1);

@@ -51,7 +51,7 @@ public class FSPServer extends FSPNode {
 			System.out.println(reponse);
 			if (!reponse.startsWith("2")) return false;
 
-			super.envoyerMessage("PASS " + Checksum.getMD5Hash(mdp));
+			super.envoyerMessage("PASS " + mdp);
 			reponse = super.lireMessage();
 			System.out.println(reponse);
 			if (!reponse.startsWith("2")) return false;

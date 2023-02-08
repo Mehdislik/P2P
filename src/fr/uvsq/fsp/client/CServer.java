@@ -63,31 +63,35 @@ public class CServer {
 			System.out.print("Mot de passe : ");
 			mdp = scan.nextLine();
 		}
-
+          
 		client = new FSPServer(serverIP, port, "client/descriptions/");
-
+		
 		try {
+			
 			client.connect();
 			client.open();
 			client.type();
-
+			
 			if (client.login(id, mdp)) {
+				
 				System.out.println("Tapez QUIT pour quitter le programme.");
 				scan = new Scanner(System.in);
+				
 				serverSocket = new ServerSocket(50000, 10);
-
+			
 				/*
 				 * Le serveur attend la connexion d'un client. Après ouverture de la socket, il attend
 				 * un message de la part du client
 				 */
-				while (loop) {
+				while (loop) { System.out.print("en ");
 					fspCore = new FSPCore("127.0.0.1", 50000);
-					fspCore.socket = serverSocket.accept();
+					fspCore.socket = serverSocket.accept(); 
+					
 					fspCore.open();
-
+					
 					msg = fspCore.lireMessage();
 					cmd = Command.parseCommand(msg);
-
+					
 					// On envoie au client le fichier qu'il demande
 					if (cmd.command.equals("DOWNLOAD")) {
 						System.out.println("Demande de fichier : " + cmd.content);
@@ -99,6 +103,7 @@ public class CServer {
 				}
 				serverSocket.close();
 			}
+			
 
 			client.quit();
 			client.close();

@@ -46,7 +46,7 @@ public class Checksum {
      * Converts bytes to hexadecimal
      */
     public static String bytesToHex(byte[] bytes) {
-        return DatatypeConverter.printHexBinary(bytes).toLowerCase();
+       return DatatypeConverter.printHexBinary(bytes).toLowerCase();
     }
 }
 

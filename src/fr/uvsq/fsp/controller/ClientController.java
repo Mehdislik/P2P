@@ -214,8 +214,10 @@ public class ClientController {
 		for (Integer index : indices) {
 			System.out.println("Téléchargement du fichier " + filesMatching.get(index));
 			System.out.println("DOWNLOAD " + filesMatching.get(index));
-			String tmp[] = filesMatching.get(index).split("/");
+			String tmp[] = filesMatching.get(index).split("\\\\");
+			System.out.println(tmp.length);
 			try {
+				
 				client.download(tmp[0], tmp[1]);
 				System.out.println("Fichier " + tmp[1] + "téléchargé");
 				scene.setNotification("Fichier " + tmp[1] + "téléchargé", "greenFont");

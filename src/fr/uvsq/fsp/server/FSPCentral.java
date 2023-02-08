@@ -82,7 +82,8 @@ public class FSPCentral extends FSPCore implements Runnable {
 		cheminUtilisateurs = configFolder + "utilisateurs.csv";
 		descriptionsFolder = configFolder + "descriptions/";
 		try {
-			users = CSVParser.read(cheminUtilisateurs);
+			
+			users = CSVParser.read("src/fr/uvsq/fsp/server/utilisateurs.csv");
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

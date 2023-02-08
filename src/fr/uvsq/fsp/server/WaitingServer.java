@@ -78,6 +78,7 @@ public class WaitingServer extends FSPCore implements Runnable {
 
 			try {
 				sock = serverSocket.accept();
+				System.out.println("serveur du client accepte bG");
 			} catch (IOException e) {
 				if (isStopped()) {
 					System.out.println("Server has stopped");

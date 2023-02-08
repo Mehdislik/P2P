@@ -45,6 +45,7 @@ public class FSPClient extends FSPNode {
 	}
 
 	public void download(String host, String fileName) throws IOException {
+		System.out.println("je suis la ");
 		FSPNode dClient = new FSPNode(host, 50000);
 		dClient.connect();
 		dClient.open();
